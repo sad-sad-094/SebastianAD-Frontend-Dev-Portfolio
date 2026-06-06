@@ -1,3 +1,7 @@
+import { initI18n } from './i18n/i18n.js';
+
+initI18n();
+
 const hamburger = document.querySelector('.nav__hamburger');
 const mobileMenu = document.querySelector('.nav__mobile-menu');
 
@@ -8,7 +12,6 @@ hamburger.addEventListener('click', () => {
   mobileMenu.setAttribute('aria-hidden', !isOpen);
 });
 
-// Close menu on nav link click
 mobileMenu.querySelectorAll('a').forEach(link => {
   link.addEventListener('click', () => {
     mobileMenu.classList.remove('is-open');

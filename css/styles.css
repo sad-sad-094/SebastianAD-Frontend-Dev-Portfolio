@@ -396,6 +396,43 @@ section {
   color: var(--color-white);
 }
 
+/* ----------------------------------------------------------------
+   Language toggle
+   ---------------------------------------------------------------- */
+.nav__lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  padding: 4px 11px;
+  border: 1px solid var(--color-dark-border);
+  border-radius: var(--radius-full);
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-family: var(--font-body);
+  font-size: var(--text-label);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--ls-label);
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+}
+
+.nav__lang-toggle:hover {
+  color: var(--color-text);
+  border-color: var(--color-text-secondary);
+}
+
+.nav__lang-toggle--mobile {
+  margin: 8px 24px 24px;
+  border-color: rgba(255, 255, 255, 0.15);
+  color: var(--color-text-secondary);
+  align-self: flex-start;
+}
+
+.nav__lang-toggle--mobile:hover {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: var(--color-bg);
+}
+
 /* ============================================================
    HERO  (mobile-first)
    ============================================================ */
