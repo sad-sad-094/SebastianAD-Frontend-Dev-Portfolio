@@ -37,6 +37,11 @@ function applyLang(lang) {
     if (t[key] !== undefined) el.setAttribute('content', t[key]);
   });
 
+  document.querySelectorAll('[data-i18n-href]').forEach(el => {
+    const key = el.dataset.i18nHref;
+    if (t[key] !== undefined) el.setAttribute('href', t[key]);
+  });
+
   document.querySelectorAll('[data-lang-toggle]').forEach(btn => {
     const next = lang === 'es' ? 'en' : 'es';
     btn.dataset.langNext = next;

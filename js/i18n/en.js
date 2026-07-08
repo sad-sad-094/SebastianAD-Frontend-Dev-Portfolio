@@ -54,6 +54,7 @@ export const en = {
   'about.text1':          "With over 3 years building interfaces for digital products, I work at the point where code comes alive for the end user. My focus isn't just that it works — it's that it works in a way people enjoy.",
   'about.text2':          'I integrate quickly into teams, communicate clearly at every stage and deliver predictably. Ideal for startups that need speed without sacrificing quality, and for businesses that want a solid frontend without surprises.',
   'about.cv_link':        'Download CV →',
+  'about.cv_href':        'assets/Curriculum_Sebastian-Aguirre-Duque_en.pdf',
   'about.cards_label':    'How I work',
   'about.card1_title':    'Collaborative',
   'about.card1_desc':     "I adapt to the team's pace and tools. I share updates without you having to ask.",

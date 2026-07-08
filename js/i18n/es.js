@@ -54,6 +54,7 @@ export const es = {
   'about.text1':          'Con más de 3 años construyendo interfaces para productos digitales, trabajo en el punto donde el código cobra vida para el usuario final. Mi enfoque no es solo que funcione — es que funcione de forma que la gente disfrute.',
   'about.text2':          'Me integro rápido a equipos, comunico con claridad en cada etapa y entrego de forma predecible. Ideal para startups que necesitan velocidad sin perder calidad, y para negocios que quieren un frontend sólido sin sorpresas.',
   'about.cv_link':        'Descargar CV →',
+  'about.cv_href':        'assets/Curriculum_Sebastian-Aguirre-Duque.pdf',
   'about.cards_label':    'Cómo trabajo',
   'about.card1_title':    'Colaborativo',
   'about.card1_desc':     'Me adapto al ritmo y herramientas del equipo. Comunico avances sin que tengas que preguntar.',
