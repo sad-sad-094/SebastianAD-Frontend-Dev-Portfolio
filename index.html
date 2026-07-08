@@ -1,0 +1,918 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <meta name="description" content="Sebastian Aguirre Duque — Frontend Developer. Interfaces web que convierten visitantes en clientes." data-i18n-content="meta.description">
+  <meta name="author" content="Sebastian Aguirre Duque">
+  <meta name="robots" content="index, follow">
+  <!-- TODO: update href to your deployed domain -->
+  <link rel="canonical" href="https://sebastianaguirreduque.dev/">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Sebastian Aguirre Duque — Frontend Developer">
+  <meta property="og:description" content="Interfaces web que convierten visitantes en clientes. Desarrollo frontend con React, Vue y Next.js para startups y negocios.">
+  <!-- TODO: update og:url and og:image to your deployed domain -->
+  <meta property="og:url" content="https://sebastianaguirreduque.dev/">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Sebastian Aguirre Duque — Frontend Developer">
+  <meta name="twitter:description" content="Interfaces web que convierten visitantes en clientes. React, Vue, Next.js.">
+
+  <title>Sebastian Aguirre Duque — Frontend Developer</title>
+
+  <link rel="icon" type="image/png" href="assets/sebastian-favicon.png">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,500;1,400&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ============================================================
+       NAV
+       ============================================================ -->
+  <header>
+    <nav class="nav" aria-label="Navegación principal" data-i18n-aria="nav.main_aria">
+      <div class="container">
+        <div class="nav__inner">
+          <a href="#" class="nav__logo" aria-label="Inicio" data-i18n-aria="nav.logo_aria">Sebastian Aguirre Duque</a>
+          <a href="#" class="nav__logo-short" aria-label="Inicio" data-i18n-aria="nav.logo_aria">
+            <span>Sebastian</span>
+            <span class="nav__logo-short__sub">Aguirre Duque</span>
+          </a>
+
+          <div class="nav__links">
+            <a href="#projects" class="nav__link" data-i18n="nav.projects">Proyectos</a>
+            <a href="#services" class="nav__link" data-i18n="nav.services">Servicios</a>
+            <a href="#about" class="nav__link" data-i18n="nav.about">Sobre mí</a>
+            <button class="nav__lang-toggle" data-lang-toggle aria-label="Cambiar a inglés">
+              <span class="nav__lang-label">EN</span>
+            </button>
+            <a href="https://wa.me/573506487868" class="nav__cta" target="_blank" rel="noopener">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+                <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+              </svg>
+              <span data-i18n="nav.cta">Hablemos</span>
+            </a>
+          </div>
+
+          <button class="nav__hamburger" aria-label="Abrir menú" aria-expanded="false" data-i18n-aria="nav.hamburger_aria">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Mobile menu overlay -->
+    <nav class="nav__mobile-menu" aria-label="Menú móvil" aria-hidden="true" data-i18n-aria="nav.mobile_menu_aria">
+      <a href="#projects" class="nav__mobile-link" data-i18n="nav.projects">Proyectos</a>
+      <a href="#services" class="nav__mobile-link" data-i18n="nav.services">Servicios</a>
+      <a href="#about" class="nav__mobile-link" data-i18n="nav.about">Sobre mí</a>
+      <div class="nav__mobile-cta">
+        <a href="https://wa.me/573506487868" target="_blank" rel="noopener">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+          </svg>
+          <span data-i18n="nav.cta">Hablemos</span>
+        </a>
+      </div>
+      <button class="nav__lang-toggle nav__lang-toggle--mobile" data-lang-toggle aria-label="Cambiar a inglés">
+        <span class="nav__lang-label">EN</span>
+      </button>
+    </nav>
+  </header>
+
+  <main>
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <section id="hero" class="hero" aria-label="Presentación" data-i18n-aria="hero.section_aria">
+      <div class="container">
+        <div class="hero__content">
+
+          <div class="hero__badge" data-i18n-aria="hero.badge_aria" aria-label="Estado: disponible para proyectos">
+            <span class="hero__badge-dot" aria-hidden="true"></span>
+            <span class="hero__badge-text" data-i18n="hero.badge">Disponible para proyectos</span>
+          </div>
+
+          <h1 class="hero__title" data-i18n-html="hero.title">
+            Interfaces web<br>
+            que convierten<br>
+            <span class="accent">visitantes en clientes.</span>
+          </h1>
+
+          <p class="hero__subtitle" data-i18n="hero.subtitle">
+            Desarrollo frontend con React, Vue y Next.js para startups y negocios que necesitan velocidad, calidad y resultados.
+          </p>
+
+          <div class="hero__ctas">
+            <a href="#projects" class="btn--primary" data-i18n="hero.cta_primary">Ver proyectos</a>
+            <a href="#contact" class="btn--secondary" data-i18n="hero.cta_secondary">Contratarme →</a>
+          </div>
+
+          <div class="hero__stats" aria-label="Datos clave" data-i18n-aria="hero.stats_aria">
+            <div class="hero__stat">
+              <div class="hero__stat-value" data-i18n="hero.stat1_value">+3 años</div>
+              <div class="hero__stat-label" data-i18n="hero.stat1_label">de experiencia</div>
+            </div>
+            <div class="hero__stat-divider" aria-hidden="true"></div>
+            <div class="hero__stat">
+              <div class="hero__stat-value">React · Vue</div>
+              <div class="hero__stat-label" data-i18n="hero.stat2_label">stack principal</div>
+            </div>
+            <div class="hero__stat-divider" aria-hidden="true"></div>
+            <div class="hero__stat">
+              <div class="hero__stat-value">ES · EN</div>
+              <div class="hero__stat-label" data-i18n="hero.stat3_label">idiomas</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SERVICIOS
+         ============================================================ -->
+    <section id="services" class="services" aria-labelledby="services-title">
+      <div class="container">
+
+        <div class="services__header">
+          <p class="section-label" data-i18n="services.label">Servicios</p>
+          <h2 id="services-title" class="services__title" data-i18n-html="services.title">
+            Lo que construyo<br>
+            <span class="accent">para tu negocio.</span>
+          </h2>
+          <p class="services__subtitle" data-i18n="services.subtitle">
+            Cada proyecto es diferente. Trabajo contigo desde el brief hasta la entrega, con comunicación clara en cada etapa.
+          </p>
+        </div>
+
+        <div class="services__grid">
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <div class="service-card__icon-inner-rect"></div>
+            </div>
+            <div>
+              <h3 class="service-card__title" data-i18n="services.card1_title">Sitio web</h3>
+              <p class="service-card__desc" data-i18n="services.card1_desc">Presencia digital que representa tu negocio con seriedad y convierte visitantes en contactos.</p>
+            </div>
+            <ul class="service-card__features">
+              <li class="service-card__feature">
+                <span class="service-card__dot" aria-hidden="true"></span>
+                <span class="service-card__feature-text" data-i18n="services.card1_f1">Diseño responsivo y adaptado a tu marca</span>
+              </li>
+              <li class="service-card__feature">
+                <span class="service-card__dot" aria-hidden="true"></span>
+                <span class="service-card__feature-text" data-i18n="services.card1_f2">Optimizado para cargar rápido en móvil</span>
+              </li>
+              <li class="service-card__feature">
+                <span class="service-card__dot" aria-hidden="true"></span>
+                <span class="service-card__feature-text" data-i18n="services.card1_f3">SEO técnico básico incluido</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <div class="service-card__icon-inner-tall"></div>
+            </div>
+            <div>
+              <h3 class="service-card__title" data-i18n="services.card2_title">Aplicación web</h3>
+              <p class="service-card__desc" data-i18n="services.card2_desc">Herramienta digital a medida para automatizar procesos, gestionar datos o servir a tus usuarios.</p>
+            </div>
+            <ul class="service-card__features">
+              <li class="service-card__feature">
+                <span class="service-card__dot" aria-hidden="true"></span>
+                <span class="service-card__feature-text" data-i18n="services.card2_f1">Frontend moderno con React o Vue</span>
+              </li>
+              <li class="service-card__feature">
+                <span class="service-card__dot" aria-hidden="true"></span>
+                <span class="service-card__feature-text" data-i18n="services.card2_f2">Integración con APIs y servicios externos</span>
+              </li>
+              <li class="service-card__feature">
+                <span class="service-card__dot" aria-hidden="true"></span>
+                <span class="service-card__feature-text" data-i18n="services.card2_f3">Escalable desde el primer día</span>
+              </li>
+            </ul>
+          </article>
+
+          <article class="service-card">
+            <div class="service-card__icon" aria-hidden="true">
+              <div class="service-card__icon-inner-circle"></div>
+            </div>
+            <div>
+              <h3 class="service-card__title" data-i18n="services.card3_title">Migración y rediseño</h3>
+              <p class="service-card__desc" data-i18n="services.card3_desc">Tu negocio ya existe. Tu sitio web debería reflejarlo bien. Modernizo lo que tienes sin empezar de cero.</p>
+            </div>
+            <ul class="service-card__features">
+              <li class="service-card__feature">
+                <span class="service-card__dot" aria-hidden="true"></span>
+                <span class="service-card__feature-text" data-i18n="services.card3_f1">Auditoría técnica y de experiencia</span>
+              </li>
+              <li class="service-card__feature">
+                <span class="service-card__dot" aria-hidden="true"></span>
+                <span class="service-card__feature-text" data-i18n="services.card3_f2">Actualización de stack sin perder lo que funciona</span>
+              </li>
+              <li class="service-card__feature">
+                <span class="service-card__dot" aria-hidden="true"></span>
+                <span class="service-card__feature-text" data-i18n="services.card3_f3">Mejora de velocidad y posicionamiento</span>
+              </li>
+            </ul>
+          </article>
+
+        </div>
+
+        <div class="services__cta-banner">
+          <div>
+            <p class="services__cta-title" data-i18n="services.banner_title">¿Tu proyecto no encaja exactamente aquí?</p>
+            <p class="services__cta-desc" data-i18n="services.banner_desc">Cuéntame lo que necesitas. Si puedo ayudarte, te lo digo. Si no, te oriento hacia quien puede.</p>
+          </div>
+          <a href="https://wa.me/573506487868" class="btn--banner" target="_blank" rel="noopener" data-i18n="services.banner_cta">Hablemos →</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         SOBRE MÍ
+         ============================================================ -->
+    <section id="about" class="about" aria-labelledby="about-title">
+      <div class="container">
+        <div class="about__grid">
+
+          <div>
+            <p class="section-label" data-i18n="about.label">Sobre mí</p>
+            <h2 id="about-title" class="about__title" data-i18n-html="about.title">
+              Desarrollo que se<br>
+              <span class="accent">siente bien usarlo.</span>
+            </h2>
+            <p class="about__text" data-i18n="about.text1">
+              Con más de 3 años construyendo interfaces para productos digitales, trabajo en el punto donde el código cobra vida para el usuario final. Mi enfoque no es solo que funcione — es que funcione de forma que la gente disfrute.
+            </p>
+            <p class="about__text" data-i18n="about.text2">
+              Me integro rápido a equipos, comunico con claridad en cada etapa y entrego de forma predecible. Ideal para startups que necesitan velocidad sin perder calidad, y para negocios que quieren un frontend sólido sin sorpresas.
+            </p>
+            <a href="assets/Curriculum_Sebastian-Aguirre-Duque.pdf" class="about__cv-link" download data-i18n="about.cv_link" data-i18n-href="about.cv_href">Descargar CV →</a>
+          </div>
+
+          <div>
+            <p class="about__cards-label" data-i18n="about.cards_label">Cómo trabajo</p>
+            <div class="about__cards">
+
+              <div class="work-card">
+                <div class="work-card__header">
+                  <div class="work-card__icon" aria-hidden="true">
+                    <span class="work-card__icon-dot"></span>
+                  </div>
+                  <h3 class="work-card__title" data-i18n="about.card1_title">Colaborativo</h3>
+                </div>
+                <p class="work-card__desc" data-i18n="about.card1_desc">Me adapto al ritmo y herramientas del equipo. Comunico avances sin que tengas que preguntar.</p>
+              </div>
+
+              <div class="work-card">
+                <div class="work-card__header">
+                  <div class="work-card__icon" aria-hidden="true">
+                    <span class="work-card__icon-dot"></span>
+                  </div>
+                  <h3 class="work-card__title" data-i18n="about.card2_title">Metódico</h3>
+                </div>
+                <p class="work-card__desc" data-i18n="about.card2_desc">Entrego de forma predecible. Sin sorpresas de última hora, con estimaciones que se cumplen.</p>
+              </div>
+
+              <div class="work-card">
+                <div class="work-card__header">
+                  <div class="work-card__icon" aria-hidden="true">
+                    <span class="work-card__icon-dot"></span>
+                  </div>
+                  <h3 class="work-card__title" data-i18n="about.card3_title">Centrado en el usuario</h3>
+                </div>
+                <p class="work-card__desc" data-i18n="about.card3_desc">Cada decisión técnica parte de una pregunta: ¿cómo se siente esto para quien lo va a usar?</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROYECTOS
+         ============================================================ -->
+    <section id="projects" class="projects" aria-labelledby="projects-title">
+      <div class="container">
+
+        <div class="projects__header">
+          <div>
+            <p class="section-label" data-i18n="projects.label">Proyectos</p>
+            <h2 id="projects-title" class="projects__title" data-i18n-html="projects.title">
+              Problemas reales,<br>
+              <span class="accent">soluciones concretas.</span>
+            </h2>
+          </div>
+          <a href="https://github.com/sad-sad-094" class="projects__github-link" target="_blank" rel="noopener" data-i18n="projects.github_link">Ver GitHub →</a>
+        </div>
+
+        <div class="projects__list">
+
+          <!-- Pandora — featured -->
+          <article class="project-card">
+            <div class="project-card__header">
+              <div class="project-card__meta">
+                <span class="tag tag--accent">Open Source</span>
+                <a href="https://github.com/PandoraSuite/pandora-admin" class="project-card__gh-link" target="_blank" rel="noopener">GitHub ↗</a>
+              </div>
+              <h3 class="project-card__name">Pandora</h3>
+              <p class="project-card__tagline" data-i18n="projects.pandora_tagline">Admin panel para gestión de API Keys e infraestructura de servicios</p>
+              <p class="project-card__desc" data-i18n="projects.pandora_desc">
+                SPA tipo-segura construida con Vue 3 para centralizar la administración de API keys, microservicios, clientes y entornos. Incluye autenticación JWT, gestión de cuotas, monitoreo de estado de servicios y soporte de múltiples ambientes (development, staging, production).
+              </p>
+              <ul class="project-card__features">
+                <li class="project-card__feature">
+                  <span class="project-card__feature-dot" aria-hidden="true"></span>
+                  <span class="project-card__feature-text" data-i18n="projects.pandora_f1">Auth con JWT y manejo automático de sesión</span>
+                </li>
+                <li class="project-card__feature">
+                  <span class="project-card__feature-dot" aria-hidden="true"></span>
+                  <span class="project-card__feature-text" data-i18n="projects.pandora_f2">Gestión completa del ciclo de vida de API keys</span>
+                </li>
+                <li class="project-card__feature">
+                  <span class="project-card__feature-dot" aria-hidden="true"></span>
+                  <span class="project-card__feature-text" data-i18n="projects.pandora_f3">Monitoreo de microservicios con estados en tiempo real</span>
+                </li>
+                <li class="project-card__feature">
+                  <span class="project-card__feature-dot" aria-hidden="true"></span>
+                  <span class="project-card__feature-text" data-i18n="projects.pandora_f4">Dark / light mode con preferencias persistentes</span>
+                </li>
+              </ul>
+            </div>
+            <div class="project-card__footer">
+              <div class="project-card__tags">
+                <span class="tag tag--accent">Vue 3</span>
+                <span class="tag tag--accent">TypeScript</span>
+                <span class="tag tag--neutral">Vite</span>
+                <span class="tag tag--neutral">Tailwind v4</span>
+                <span class="tag tag--neutral">Pinia</span>
+                <span class="tag tag--neutral">PostgreSQL</span>
+              </div>
+              <span class="project-card__date" data-i18n="projects.pandora_date">Open Source · 2025</span>
+            </div>
+          </article>
+
+          <!-- Grid — small projects -->
+          <div class="project-grid">
+
+            <article class="project-mini">
+              <div class="project-mini__body">
+                <div class="project-mini__meta">
+                  <span class="tag tag--neutral">Fullstack</span>
+                  <span class="project-card__gh-link" aria-hidden="true" style="font-size:12px;color:var(--color-text-secondary);">GitHub ↗</span>
+                </div>
+                <h3 class="project-mini__name">Job Portal</h3>
+                <p class="project-mini__desc" data-i18n="projects.jobportal_desc">API REST diseñada con Node y Express sobre PostgreSQL — endpoints para listado general, búsqueda filtrada y aplicación de candidatos. Consumida íntegramente desde un frontend Vue que cierra el ciclo completo: del dato al usuario.</p>
+              </div>
+              <div class="project-mini__footer">
+                <span class="tag tag--neutral">Node.js</span>
+                <span class="tag tag--neutral">Express</span>
+                <span class="tag tag--neutral">PostgreSQL</span>
+                <span class="tag tag--neutral">Vue 3</span>
+                <span class="tag tag--neutral">TypeScript</span>
+              </div>
+            </article>
+
+            <article class="project-mini">
+              <div class="project-mini__body">
+                <div class="project-mini__meta">
+                  <span class="tag tag--neutral">Landing page</span>
+                  <span class="tag tag--accent" style="font-size:10px;" data-i18n="projects.client_tag">En producción ↗</span>
+                </div>
+                <h3 class="project-mini__name" data-i18n="projects.client_name">Cliente — por revelar</h3>
+                <p class="project-mini__desc" data-i18n="projects.client_desc">Sitio de presentación construido en HTML y CSS semántico, completamente responsive. Optimizado para conversión y carga rápida sin dependencias de framework.</p>
+              </div>
+              <div class="project-mini__footer">
+                <span class="tag tag--neutral">HTML5</span>
+                <span class="tag tag--neutral">CSS3</span>
+                <span class="tag tag--neutral">Responsive</span>
+              </div>
+            </article>
+
+          </div>
+
+          <!-- Coming soon -->
+          <div class="project-coming" aria-label="Proyectos en camino" data-i18n-aria="projects.coming_aria">
+            <div>
+              <p class="project-coming__title" data-i18n="projects.coming_title">Nuevos proyectos en camino</p>
+              <p class="project-coming__desc" data-i18n="projects.coming_desc">Actualmente construyendo casos de uso enfocados en soluciones de negocio reales. Disponibles pronto.</p>
+            </div>
+            <div class="project-coming__icon" aria-hidden="true">+</div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         STACK TECNOLÓGICO
+         ============================================================ -->
+    <section id="stack" class="stack" aria-labelledby="stack-title">
+      <div class="container">
+
+        <div class="stack__header">
+          <p class="section-label" data-i18n="stack.label">Stack y enfoque técnico</p>
+          <h2 id="stack-title" class="stack__title" data-i18n-html="stack.title">
+            Las herramientas importan.<br>
+            <span class="accent">Cómo las usas, más.</span>
+          </h2>
+        </div>
+
+        <div class="stack__tech-table">
+          <p class="stack__table-label" data-i18n="stack.table_label">TECNOLOGÍAS</p>
+          <div class="stack__rows">
+
+            <div class="stack__row">
+              <span class="stack__row-label" data-i18n="stack.row1_label">Frameworks</span>
+              <div class="stack__row-tags">
+                <span class="tag tag--accent">React</span>
+                <span class="tag tag--accent">Next.js</span>
+                <span class="tag tag--accent">Vue</span>
+                <span class="tag tag--accent">Nuxt</span>
+              </div>
+            </div>
+
+            <div class="stack__divider" aria-hidden="true"></div>
+
+            <div class="stack__row">
+              <span class="stack__row-label" data-i18n="stack.row2_label">Styling &amp; UI</span>
+              <div class="stack__row-tags">
+                <span class="tag tag--neutral">Tailwind CSS</span>
+                <span class="tag tag--neutral">DaisyUI</span>
+                <span class="tag tag--neutral">Shadcn/ui</span>
+                <span class="tag tag--neutral">Material UI</span>
+                <span class="tag tag--neutral">Ant Design</span>
+                <span class="tag tag--neutral">Styled Components</span>
+                <span class="tag tag--neutral">CSS3</span>
+              </div>
+            </div>
+
+            <div class="stack__divider" aria-hidden="true"></div>
+
+            <div class="stack__row">
+              <span class="stack__row-label" data-i18n="stack.row3_label">Estado</span>
+              <div class="stack__row-tags">
+                <span class="tag tag--neutral">Zustand</span>
+                <span class="tag tag--neutral">TanStack Query</span>
+                <span class="tag tag--neutral">Pinia</span>
+                <span class="tag tag--neutral">Redux</span>
+                <span class="tag tag--neutral">Vuex</span>
+              </div>
+            </div>
+
+            <div class="stack__divider" aria-hidden="true"></div>
+
+            <div class="stack__row">
+              <span class="stack__row-label" data-i18n="stack.row4_label">Base</span>
+              <div class="stack__row-tags">
+                <span class="tag tag--neutral">HTML5</span>
+                <span class="tag tag--neutral">JavaScript</span>
+                <span class="tag tag--neutral">TypeScript</span>
+                <span class="tag tag--neutral">Python</span>
+              </div>
+            </div>
+
+            <div class="stack__divider" aria-hidden="true"></div>
+
+            <div class="stack__row">
+              <span class="stack__row-label" data-i18n="stack.row7_label">Build Tools</span>
+              <div class="stack__row-tags">
+                <span class="tag tag--neutral">Vite</span>
+                <span class="tag tag--neutral">Webpack</span>
+              </div>
+            </div>
+
+            <div class="stack__divider" aria-hidden="true"></div>
+
+            <div class="stack__row">
+              <span class="stack__row-label" data-i18n="stack.row8_label">Control de versiones</span>
+              <div class="stack__row-tags">
+                <span class="tag tag--neutral">Git</span>
+                <span class="tag tag--neutral">GitHub</span>
+              </div>
+            </div>
+
+            <div class="stack__divider" aria-hidden="true"></div>
+
+            <div class="stack__row">
+              <span class="stack__row-label" data-i18n="stack.row9_label">Clientes HTTP</span>
+              <div class="stack__row-tags">
+                <span class="tag tag--neutral">Axios</span>
+                <span class="tag tag--neutral">Fetch API</span>
+              </div>
+            </div>
+
+            <div class="stack__divider" aria-hidden="true"></div>
+
+            <div class="stack__row">
+              <span class="stack__row-label" data-i18n="stack.row10_label">Testing de APIs</span>
+              <div class="stack__row-tags">
+                <span class="tag tag--neutral">Postman</span>
+                <span class="tag tag--neutral">Bruno</span>
+                <span class="tag tag--neutral">Insomnia</span>
+              </div>
+            </div>
+
+            <div class="stack__divider" aria-hidden="true"></div>
+
+            <div class="stack__row">
+              <span class="stack__row-label" data-i18n="stack.row11_label">Testing &amp; Validación</span>
+              <div class="stack__row-tags">
+                <span class="tag tag--neutral">Vitest</span>
+                <span class="tag tag--neutral">Jest</span>
+                <span class="tag tag--neutral">Vue Test Utils</span>
+                <span class="tag tag--neutral">Zod</span>
+              </div>
+            </div>
+
+            <div class="stack__divider" aria-hidden="true"></div>
+
+            <div class="stack__row">
+              <span class="stack__row-label" data-i18n="stack.row5_label">Base de datos</span>
+              <div class="stack__row-tags">
+                <span class="tag tag--neutral">PostgreSQL</span>
+              </div>
+            </div>
+
+            <div class="stack__divider" aria-hidden="true"></div>
+
+            <div class="stack__row">
+              <span class="stack__row-label" data-i18n="stack.row6_label">Backend básico</span>
+              <div class="stack__row-tags">
+                <span class="tag tag--neutral">Node.js</span>
+                <span class="tag tag--neutral">Express</span>
+                <span class="tag tag--accent" style="font-size:10px;" data-i18n="stack.row6_tag">En crecimiento</span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+        <div class="stack__secondary">
+
+          <div class="stack__panel">
+            <p class="stack__panel-label" data-i18n="stack.arch_label">ARQUITECTURA</p>
+            <div class="stack__items">
+              <div class="stack__item">
+                <span class="stack__item-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="stack__item-title" data-i18n="stack.arch1_title">Feature-based architecture</p>
+                  <p class="stack__item-desc" data-i18n="stack.arch1_desc">Código organizado por dominio, no por tipo de archivo. Escalable desde el día uno.</p>
+                </div>
+              </div>
+              <div class="stack__divider" aria-hidden="true"></div>
+              <div class="stack__item">
+                <span class="stack__item-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="stack__item-title" data-i18n="stack.arch2_title">Gestión de estado centralizada</p>
+                  <p class="stack__item-desc" data-i18n="stack.arch2_desc">Pinia, Vuex o Redux según el proyecto. Estado predecible, debugging claro.</p>
+                </div>
+              </div>
+              <div class="stack__divider" aria-hidden="true"></div>
+              <div class="stack__item">
+                <span class="stack__item-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="stack__item-title" data-i18n="stack.arch3_title">Micro-frontends</p>
+                  <p class="stack__item-desc" data-i18n="stack.arch3_desc">Módulos independientes por dominio. Equipos paralelos sin bloqueos.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="stack__panel">
+            <p class="stack__panel-label" data-i18n="stack.principles_label">PRINCIPIOS</p>
+            <div class="stack__items">
+              <div class="stack__item">
+                <span class="stack__item-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="stack__item-title" data-i18n-html="stack.prin1_title">Clean Code &amp; SOLID</p>
+                  <p class="stack__item-desc" data-i18n="stack.prin1_desc">Código que el equipo puede leer, mantener y extender sin miedo.</p>
+                </div>
+              </div>
+              <div class="stack__divider" aria-hidden="true"></div>
+              <div class="stack__item">
+                <span class="stack__item-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="stack__item-title" data-i18n="stack.prin2_title">Testing unitario y E2E</p>
+                  <p class="stack__item-desc" data-i18n="stack.prin2_desc">Cobertura donde importa. Features que no se rompen al crecer.</p>
+                </div>
+              </div>
+              <div class="stack__divider" aria-hidden="true"></div>
+              <div class="stack__item">
+                <span class="stack__item-dot" aria-hidden="true"></span>
+                <div>
+                  <p class="stack__item-title" data-i18n-html="stack.prin3_title">Performance &amp; Core Web Vitals</p>
+                  <p class="stack__item-desc" data-i18n="stack.prin3_desc">LCP, CLS, FID optimizados. Apps que puntúan alto en Lighthouse.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         PROCESO DE TRABAJO
+         ============================================================ -->
+    <section id="process" class="process" aria-labelledby="process-title">
+      <div class="container">
+
+        <div class="process__header">
+          <div>
+            <p class="section-label" data-i18n="process.label">Proceso</p>
+            <h2 id="process-title" class="process__title" data-i18n-html="process.title">
+              Sin sorpresas.<br>
+              <span class="accent">Así trabajo contigo.</span>
+            </h2>
+          </div>
+          <p class="process__subtitle" data-i18n="process.subtitle">De la idea al producto, con claridad en cada etapa.</p>
+        </div>
+
+        <ol class="process__steps">
+
+          <li class="step">
+            <div class="step__track" aria-hidden="true">
+              <div class="step__circle step__circle--dark">
+                <span class="step__number">1</span>
+              </div>
+              <div class="step__line"></div>
+            </div>
+            <div class="step__body">
+              <h3 class="step__title" data-i18n="process.step1_title">Descubrimiento</h3>
+              <p class="step__desc" data-i18n="process.step1_desc">Una llamada o formulario para entender tu negocio, tus objetivos y a quién le habla tu sitio. Sin esto no hay propuesta real — y las propuestas sin contexto no sirven a nadie.</p>
+              <span class="deliverable" data-i18n="process.step1_del">Entregable: brief confirmado</span>
+            </div>
+          </li>
+
+          <li class="step">
+            <div class="step__track" aria-hidden="true">
+              <div class="step__circle step__circle--dark">
+                <span class="step__number">2</span>
+              </div>
+              <div class="step__line"></div>
+            </div>
+            <div class="step__body">
+              <h3 class="step__title" data-i18n="process.step2_title">Propuesta</h3>
+              <p class="step__desc" data-i18n="process.step2_desc">Alcance, cronograma y presupuesto detallados por escrito. Sabes exactamente qué recibes, cuándo y cuánto cuesta antes de comprometerte con nada.</p>
+              <span class="deliverable" data-i18n="process.step2_del">Entregable: propuesta firmada</span>
+            </div>
+          </li>
+
+          <li class="step">
+            <div class="step__track" aria-hidden="true">
+              <div class="step__circle step__circle--accent">
+                <span class="step__number">3</span>
+              </div>
+              <div class="step__line"></div>
+            </div>
+            <div class="step__body">
+              <h3 class="step__title" data-i18n="process.step3_title">Diseño y aprobación</h3>
+              <p class="step__desc" data-i18n="process.step3_desc">Mockups o wireframes del resultado esperado para que lo veas antes de que exista. Tu aprobación aquí evita correcciones costosas después — y protege a los dos.</p>
+              <span class="deliverable" data-i18n="process.step3_del">Entregable: diseño aprobado</span>
+            </div>
+          </li>
+
+          <li class="step">
+            <div class="step__track" aria-hidden="true">
+              <div class="step__circle step__circle--accent">
+                <span class="step__number">4</span>
+              </div>
+              <div class="step__line"></div>
+            </div>
+            <div class="step__body">
+              <h3 class="step__title" data-i18n="process.step4_title">Desarrollo</h3>
+              <p class="step__desc" data-i18n="process.step4_desc">Construcción iterativa con actualizaciones regulares. Tienes visibilidad del avance sin tener que preguntar — siempre sabes en qué etapa estamos y qué viene después.</p>
+              <span class="deliverable" data-i18n="process.step4_del">Entregable: builds para revisión</span>
+            </div>
+          </li>
+
+          <li class="step">
+            <div class="step__track" aria-hidden="true">
+              <div class="step__circle step__circle--final">
+                <span class="step__number">5</span>
+              </div>
+            </div>
+            <div class="step__body">
+              <h3 class="step__title" data-i18n="process.step5_title">Entrega y soporte</h3>
+              <p class="step__desc" data-i18n="process.step5_desc">Revisión final, ajustes y lanzamiento. Una vez en producción, estoy disponible para soporte post-entrega en un período acordado — porque los proyectos no terminan el día que salen en vivo.</p>
+              <span class="deliverable" data-i18n="process.step5_del">Entregable: proyecto en producción</span>
+            </div>
+          </li>
+
+        </ol>
+
+      </div>
+    </section>
+
+    <!-- ============================================================
+         CONTACTO
+         ============================================================ -->
+    <section id="contact" class="contact" aria-labelledby="contact-title">
+      <div class="container">
+        <div class="contact__inner">
+
+          <p class="section-label" data-i18n="contact.label">Contacto</p>
+
+          <h2 id="contact-title" class="contact__title" data-i18n-html="contact.title">
+            ¿Tienes un proyecto<br>
+            <span class="accent">en mente?</span>
+          </h2>
+
+          <p class="contact__subtitle" data-i18n="contact.subtitle">
+            Cuéntame de qué se trata. Respondo en menos de 24 horas con honestidad sobre si puedo ayudarte y cómo.
+          </p>
+
+          <a href="https://wa.me/573506487868" class="btn--whatsapp" target="_blank" rel="noopener">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="white" aria-hidden="true">
+              <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/>
+            </svg>
+            <span data-i18n="contact.whatsapp_btn">Escribir por WhatsApp</span>
+          </a>
+
+          <div class="contact__socials-wrapper">
+            <a href="https://github.com/sad-sad-094" class="social-link" target="_blank" rel="noopener" aria-label="GitHub">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#888780" aria-hidden="true">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/sebastian-aguirre-duque-05b9b082" class="social-link" target="_blank" rel="noopener" aria-label="LinkedIn">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="#888780" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+              LinkedIn
+            </a>
+            <a href="mailto:sadw621@gmail.com" class="social-link" aria-label="Correo electrónico" data-i18n-aria="contact.email_aria">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                <polyline points="22,6 12,13 2,6"/>
+              </svg>
+              <span data-i18n="contact.email_link">Correo</span>
+            </a>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ============================================================
+       FOOTER
+       ============================================================ -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__inner">
+        <div class="footer__brand">
+          <span class="footer__name">Sebastian Aguirre Duque</span>
+          <span class="footer__year">© 2026</span>
+        </div>
+        <nav class="footer__links" aria-label="Navegación del footer" data-i18n-aria="footer.nav_aria">
+          <a href="#projects" class="footer__link" data-i18n="footer.projects">Proyectos</a>
+          <a href="#services" class="footer__link" data-i18n="footer.services">Servicios</a>
+          <a href="#about" class="footer__link" data-i18n="footer.about">Sobre mí</a>
+          <a href="#contact" class="footer__link" data-i18n="footer.contact">Contacto</a>
+        </nav>
+      </div>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+
+  <!-- Structured data — SEO & AEO -->
+  <!-- TODO: replace all "sebastianaguirreduque.dev" with your deployed domain -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://sebastianaguirreduque.dev/#person",
+        "name": "Sebastian Aguirre Duque",
+        "jobTitle": "Frontend Developer",
+        "description": "Frontend developer with 3+ years of experience building web interfaces with React, Vue, and Next.js for startups and businesses.",
+        "email": "sadw621@gmail.com",
+        "telephone": "+573506487868",
+        "url": "https://sebastianaguirreduque.dev/",
+        "sameAs": [
+          "https://github.com/sad-sad-094",
+          "https://www.linkedin.com/in/sebastian-aguirre-duque-05b9b082"
+        ],
+        "knowsAbout": [
+          "React", "Vue.js", "Next.js", "Nuxt", "TypeScript", "JavaScript", "Python",
+          "Tailwind CSS", "DaisyUI", "Shadcn/ui", "Material UI", "Ant Design", "Styled Components", "CSS3", "HTML5",
+          "Zustand", "TanStack Query", "Pinia", "Vuex", "Redux",
+          "Vite", "Webpack",
+          "Git", "GitHub",
+          "Axios", "Fetch API",
+          "Postman", "Bruno", "Insomnia",
+          "Vitest", "Jest", "Vue Test Utils", "Zod",
+          "Node.js", "Express", "PostgreSQL",
+          "Frontend Development", "Web Application Development",
+          "Feature-based Architecture", "Core Web Vitals", "Performance Optimization"
+        ],
+        "knowsLanguage": [
+          { "@type": "Language", "name": "Spanish" },
+          { "@type": "Language", "name": "English" }
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "CO"
+        }
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://sebastianaguirreduque.dev/#website",
+        "name": "Sebastian Aguirre Duque — Frontend Developer",
+        "url": "https://sebastianaguirreduque.dev/",
+        "description": "Portafolio personal de Sebastian Aguirre Duque, desarrollador frontend especializado en React, Vue y Next.js.",
+        "inLanguage": ["es", "en"],
+        "author": { "@id": "https://sebastianaguirreduque.dev/#person" }
+      },
+      {
+        "@type": "ProfessionalService",
+        "name": "Desarrollo Frontend — Sebastian Aguirre Duque",
+        "description": "Servicios de desarrollo frontend: sitios web, aplicaciones web y rediseño. React, Vue, Next.js, TypeScript.",
+        "provider": { "@id": "https://sebastianaguirreduque.dev/#person" },
+        "serviceType": [
+          "Website Development",
+          "Web Application Development",
+          "Frontend Redesign",
+          "Frontend Migration"
+        ],
+        "areaServed": "Worldwide",
+        "availableChannel": {
+          "@type": "ServiceChannel",
+          "serviceUrl": "https://wa.me/573506487868"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué tecnologías usa Sebastian Aguirre Duque?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sebastian trabaja principalmente con React, Next.js, Vue y Nuxt como frameworks frontend. Para estilos usa Tailwind CSS, Styled Components y CSS3. Maneja estado con Pinia, Vuex y Redux. Su stack base incluye HTML5, JavaScript y TypeScript, con conocimiento de Node.js, Express y PostgreSQL."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cuáles son los servicios de desarrollo web que ofrece Sebastian Aguirre Duque?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sebastian ofrece tres servicios: (1) Sitios web — presencia digital responsiva, optimizada para móvil y con SEO técnico básico; (2) Aplicaciones web — herramientas a medida con React o Vue, integración con APIs y arquitectura escalable; (3) Migración y rediseño — modernización de sitios existentes con auditoría técnica y mejora de velocidad."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo es el proceso de trabajo de Sebastian Aguirre Duque?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "El proceso tiene 5 etapas: (1) Descubrimiento — llamada para entender el negocio y objetivos; (2) Propuesta — alcance, cronograma y presupuesto por escrito; (3) Diseño y aprobación — mockups previos a la construcción; (4) Desarrollo — construcción iterativa con actualizaciones regulares; (5) Entrega y soporte — lanzamiento y soporte post-entrega en período acordado."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo contratar a Sebastian Aguirre Duque para un proyecto?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Puedes contactar a Sebastian por WhatsApp al +573506487868, por correo a sadw621@gmail.com, o a través de LinkedIn. Responde en menos de 24 horas para evaluar si puede ayudarte y cómo."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿En qué idiomas trabaja Sebastian Aguirre Duque?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Sebastian Aguirre Duque trabaja en español e inglés, y su portafolio está disponible en ambos idiomas."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</body>
+</html>
