@@ -6,9 +6,11 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 Personal portfolio for Sebastian Aguirre Duque, a frontend developer. This is a zero-dependency, vanilla HTML/CSS/JS static site — no build step, no package manager, no framework.
 
+The current design ("Ficha técnica") comes from a prototype + development guide kept outside the repo (`../design/New Design/GUIA-DESARROLLO_1.md`). That guide is the source of truth for tokens, type scale, motion and layout rules.
+
 ## Running the site
 
-Open `index.html` directly in a browser, or use any static file server:
+Use any static file server (ES module imports fail over `file://` in some browsers):
 
 ```bash
 python3 -m http.server 8080
@@ -16,72 +18,67 @@ python3 -m http.server 8080
 npx serve .
 ```
 
-Since `js/main.js` and `js/i18n/*.js` use ES module `import`/`export`, opening `index.html` via `file://` will fail to load the script in some browsers (CORS on module imports) — prefer a local server.
-
 ## Deployment
 
-- Deployed on **Cloudflare** via `wrangler.jsonc`, which serves the repo root (`.`) directly as static assets — no build step in the deploy pipeline either.
-- `<head>` in `index.html` has explicit `TODO` comments marking the canonical URL, `og:url`, and the JSON-LD `@id`/`url` fields (currently a placeholder domain `https://sebastianaguirreduque.dev/`) — update all of these together once the real production domain is confirmed.
+- Deployed on **Cloudflare** via `wrangler.jsonc`, which serves the repo root (`.`) directly as static assets — no build step. Cloudflare's default HTML handling serves `servicios.html` at `/servicios`.
+- Both pages' `<head>` have `TODO` comments marking the canonical URL, `og:url`, `og:image`/`twitter:image`, and the JSON-LD `@id`/`url` fields (placeholder domain `https://sebastianaguirreduque.dev/`) — update all of them together once the real domain is confirmed.
+
+## Two pages, two audiences
+
+| File | Route | Audience | Sections (DOM order) |
+|---|---|---|---|
+| `index.html` | `/` | Recruiters / tech teams | hero → `work` 01 → `experience` 02 → `approach` 03 → `stack` 04 → `contact` 05 → footer |
+| `servicios.html` | `/servicios` | SMBs / agencies (freelance) | hero → `clients` 01 → `build` 02 → `process` 03 → `limits` 04 → `contact` 05 → footer |
+
+**Rule that does not break:** no vendor language (budget, timeline, "hire me") on `/`; no candidate language (CV, job availability) on `/servicios`. The link between the two lives in the **footer**, never the main menu.
 
 ## Architecture
 
-- `index.html` — single-page document with all sections as semantic landmarks (`<section id="...">`)
-- `css/styles.css` — all styles, organized top-to-bottom as: custom properties → reset → layout → components → sections → responsive overrides
-- `js/main.js` — initializes i18n and handles the mobile hamburger menu toggle
-- `js/i18n/` — vanilla i18n module (no library):
-  - `i18n.js` — `initI18n()` picks the language (localStorage `portfolio-lang` → browser language → `es` default), then swaps text via `data-i18n` (textContent), `data-i18n-html` (innerHTML), `data-i18n-aria` (aria-label), `data-i18n-content` (content attr, for meta tags), and `data-i18n-href` (href attr, e.g. swapping the CV PDF link per language). The `[data-lang-toggle]` button(s) in the nav (desktop + mobile) switch languages and persist the choice.
-  - `es.js` / `en.js` — flat key→string dictionaries consumed by `i18n.js`, both currently 153 lines and must stay in sync key-for-key
-  - When adding new translatable text in `index.html`, add the matching key to **both** `es.js` and `en.js` and wire the element with the appropriate `data-i18n*` attribute. Default/fallback language is Spanish (`es`); `<html lang>` is updated at runtime to match the active language.
-- `assets/` — favicon, wordmark logo, and two CV PDFs (`Curriculum_Sebastian-Aguirre-Duque.pdf` for ES, `_en.pdf` for EN — linked via `data-i18n-href` in the About section)
-- `wrangler.jsonc` — Cloudflare deploy config (static assets, no build)
-- `README.md` — GitHub-facing profile README (skills badges, open-source project write-ups); not consumed by the site itself
+- `css/styles.css` — the whole design system, shared by both pages: tokens → base → a11y → grid/HUD → nav → section structure → components → services-page components → `sm`/`md`/`lg` layers → reduced motion.
+- `js/main.js` — theme toggle, mobile menu, Pandora screenshot placeholder, nav border on scroll, `.rv` scroll reveal, HUD, footer year, then `initI18n()`. Shared by both pages; every feature no-ops if its elements are absent.
+- Each page has a tiny **inline script in `<head>`** that applies the saved theme (`localStorage['sad-theme']`, else `prefers-color-scheme`) before first paint. Keep it there — moving it into `main.js` causes a light flash.
+- `js/i18n/` — vanilla i18n (no library):
+  - `i18n.js` — `initI18n()` picks the language (localStorage `portfolio-lang` → browser language → `es`), then swaps `data-i18n` (textContent), `data-i18n-html` (innerHTML), `data-i18n-aria`, `data-i18n-alt`, `data-i18n-content` (meta tags), `data-i18n-href` (CV PDF per language). `[data-lang-toggle]` switches language. Exports `t(key)` and dispatches a `langchange` event (the HUD listens to it).
+  - `es.js` / `en.js` — flat dictionaries, **must stay in sync key-for-key**. Keys are prefixed `common.*` (both pages), `home.*` (index), `svc.*` (servicios). New visible or meta copy needs a key in both files.
+- `assets/` — favicon, wordmark logo, CV PDFs (ES / `_en`), `img/jobportal.jpg`.
+- `og/` — social preview card templates (`og-home.html`, `og-servicios.html`, shared `og-card.css`). Run `bash og/render.sh` after editing them to regenerate `assets/og-home.jpg` / `assets/og-servicios.jpg` (1200×630, needs python3 + Pillow + firefox). Both pages reference them via absolute `og:image` / `twitter:image` URLs on the placeholder domain. `img/pandora.jpg` is **pending**: until it exists the frame shows a dashed placeholder (2560px wide, ideally dark mode).
 
-**CSS design system** lives entirely in `:root` custom properties at the top of `styles.css`: color palette, typography scale (using `clamp()` for fluid sizing), spacing scale, border radii, borders, and transitions. All component styles consume these tokens — do not hardcode values.
+## Design system (see `:root` in styles.css)
 
-- Border radii: `--radius-sm` (4px) → `--radius-full` (100px)
-- Transitions: `--transition-fast` (150ms), `--transition-base` (250ms)
-- Safe-area insets (`--safe-area-*`) wrap `env(safe-area-inset-*)` for notch/home-bar devices, used on `.nav`, `.nav__mobile-menu`, `.container`, `.footer` — relies on `viewport-fit=cover` in the meta viewport tag
+- **Tokens:** `--bg --surface --surface-2 --ink --muted --faint --line --line-soft --line-strong --accent --accent-soft --deep`, redefined under `html[data-theme="dark"]`. Dark-band colors are `--band-*` tokens. Don't hardcode values in components.
+- **`--faint` is at 4.84:1 contrast — do not lighten it.**
+- **Label size floor:** mono labels/meta use `--fs-label` (`.6875rem` = 11px). Nothing functional goes below it (deliberate deviation from the guide's .62–.68rem).
+- **Fonts:** Instrument Serif (`--serif`: h1–h3, spec values/figures), Inter (`--sans`: running text), JetBrains Mono (`--mono`: labels, chips, section numbers, HUD, and the contact email/phone — mono keeps `1`/`l` unambiguous, which the serif did not). Loaded via `<link>` in each page head — keep both pages in sync.
+- **Italic is the only emphasis and is always `--accent`** (`em`). Section h2s are two lines split by `<br>`: roman, then italic.
+- **No `border-radius`** except the round icon buttons in the nav. Square corners are intentional.
+- Class names follow the prototype (`.case`, `.field`, `.srow`, `.tier`, `.chip`, `.track`, `.step`…), not BEM. Section IDs stay English.
 
-**Responsive strategy**: mobile-first. Base styles target mobile; `@media (min-width: ...)` breakpoints layer in larger-screen overrides. The main breakpoints used are `540px`, `768px`, `900px`, and `1024px`.
+**Mobile first, strictly.** Base = phone. Layers: `sm` 640px, `md` 768px (`--pad` 20→40px, grid, `+` marks, HUD, two-column tables), `lg` 900px (three-column grids), `xl` 1100px (full horizontal menu — below it the full-name brand + links don't fit, so the hamburger stays; on `/servicios` the "← Portafolio" link only shows from 1280px). **There must be no `max-width` media query** — if you need one, the style belongs in the base.
 
-**BEM naming** is used throughout: `.block__element--modifier` (e.g., `.nav__link`, `.service-card__title`, `.step__circle--accent`). Section IDs and CSS classes are English (`services`, `process`, `contact`, etc.) — an earlier refactor renamed them from Spanish, even though the visible copy defaults to Spanish.
+### Signature pieces (don't lose them)
 
-## Sections (in DOM order)
+- **Vertical grid:** `.rules` (fixed) on body; every dark section (`.band`) carries its own `.bandrules` copy because the band covers the fixed grid.
+- **Section heads:** `.sechead` with `.secnum` 01–05 + `.secname` + `.secrule`. Numbers must match the nav `data-n` / mobile-menu `<i>`. The HUD derives its numbers/names from these heads automatically.
+- **`+` marks** on each section's top edge (`.plus.tl` / `.plus.tr`).
+- **HUD** bottom-right, updates via IntersectionObserver at viewport center.
 
-`hero` → `services` → `about` → `projects` → `stack` → `process` → `contact` → `footer`
+### Motion
 
-All sections use `.container` for max-width centering. Section headings use `section-label` (uppercase small label), `h2` (main title), and optional subtitle pattern.
+Two curves only: `--ease-out` (`cubic-bezier(.22,1,.36,1)`) and `--ease-ping` (availability dot). Hero headline lines rise from an `overflow:hidden` mask (`h1 .ln > span`, start at `translateY(105%)`); `.hsub/.hcta/.spec` fade in and **start at `opacity:0`**. Everything else uses `.rv` (reveal once, then unobserve). **Any new motion must also be undone in the `prefers-reduced-motion` block.**
 
-- **hero** — headline, availability badge, primary/secondary CTAs, quick stats (years of experience, stack, languages)
-- **services** — service offering cards (see `services__title` / `service-card` in HTML)
-- **about** — bio + CV download link (`data-i18n-href` swaps PDF by language)
-- **projects** — `project-card` (featured, e.g. Pandora), `project-mini` (grid items), and a `project-coming` teaser card. Adding a project means duplicating the relevant markup block and adding i18n keys for any translated copy
-- **stack** — technical stack / approach breakdown
-- **process** — the 5-step engagement process (also mirrored in the FAQPage JSON-LD below)
-- **contact** — WhatsApp CTA, social links (GitHub, LinkedIn, email via `mailto:`)
-- **footer** — brand name, copyright year, footer nav links
+## Contact data — keep in sync
 
-## Key design decisions
-
-- **Dark sections** (`stack`, `process`, `contact`, `footer`) use navy/dark background tokens (`--color-navy`, `--color-dark`). Light sections (`hero`, `services`, `about`, `projects`) use `--color-bg` (`#F5F4F0`).
-- **Accent color** is `#4D55CC` (indigo). Used sparingly for `.accent` text spans, `tag--accent` tags, and CTAs.
-- **Fonts**: Fraunces (serif, headings) + Inter (sans-serif, body). Both loaded via Google Fonts in `<head>` (and imported again at the top of `styles.css` — keep both in sync if the font choice changes).
-- The WhatsApp CTA (`https://wa.me/573506487868`) appears in **four** places: nav, mobile menu, services banner, and contact section — update all four if the number changes. The same number also appears in the JSON-LD (`telephone`, `availableChannel.serviceUrl`) — update there too.
-- Contact email `sadw621@gmail.com` appears in the contact section `mailto:` link and in the JSON-LD `Person.email` — keep in sync if it changes.
+- WhatsApp `https://wa.me/573506487868`: `/` contact section (small "Prefer WhatsApp?" line); `/servicios` contact section (big number + solid button); `servicios.html` JSON-LD (`telephone`, `availableChannel.serviceUrl`); `index.html` JSON-LD `Person.telephone`.
+- Email `sadw621@gmail.com`: both contact sections + both JSON-LD blocks.
 
 ## SEO / AEO (structured data)
 
-A single `<script type="application/ld+json">` at the end of `<body>` defines a `@graph` with four entities:
-
-- `Person` — bio, contact info, `knowsAbout` (skills list), `knowsLanguage`
-- `WebSite` — site metadata, links back to the `Person` as author
-- `ProfessionalService` — service offerings and `areaServed`
-- `FAQPage` — Q&A content targeting AEO (answer-engine optimization); keep this in sync with the visible `services` and `process` section copy if either changes, since they describe the same offerings
-
-Also present: Open Graph and Twitter Card meta tags in `<head>`, and a `<meta name="description">` tag wired to `data-i18n-content` so it translates with the rest of the page.
+- `index.html` JSON-LD: `Person` (+ `knowsAbout` mirroring the Stack section) and `WebSite`.
+- `servicios.html` JSON-LD: `ProfessionalService` and `FAQPage`, referencing the Person by `@id`. **The FAQ mirrors the visible services, clients, process and limits copy — keep it in sync when that copy changes.**
+- Each page has its own `<title>`, meta description, Open Graph and Twitter tags, all translated via `data-i18n-content`.
 
 ## Contact / ownership
 
 - Owner: Sebastian Aguirre Duque — `sadw621@gmail.com`
-- GitHub: `https://github.com/sad-sad-094` (repo: `sad-sad-094/SebastianAD-Frontend-Dev-Portfolio`)
+- GitHub: `https://github.com/sad-sad-094` (repo: `sad-sad-094/SebastianAD-Frontend-Dev-Portfolio`); Pandora repo: `https://github.com/PandoraSuite/pandora-admin`
 - LinkedIn: `https://www.linkedin.com/in/sebastian-aguirre-duque-05b9b082`
