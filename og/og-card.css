@@ -1,0 +1,46 @@
+/* Social preview cards (og:image) — 1200×630, rendered to JPG by og/render.sh.
+   Same tokens as css/styles.css; kept standalone so the cards stay pixel-stable. */
+:root{
+  --bg:#F6F4EF; --ink:#15162E; --muted:#5F5E76; --faint:#6A6980;
+  --line:#DBD6C9; --line-soft:#E7E3D8; --accent:#4F46E5; --ok:#16A34A;
+  --grid:var(--line-soft);
+  --serif:'Instrument Serif',Georgia,serif;
+  --sans:'Inter',-apple-system,BlinkMacSystemFont,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,Menlo,monospace;
+  --pad:72px;
+}
+.card--deep{
+  --title:92px;
+  --bg:#1A1940; --ink:#FFFFFF; --muted:rgba(255,255,255,.72); --faint:rgba(255,255,255,.56);
+  --line:rgba(255,255,255,.16); --accent:#A79FFF; --grid:rgba(255,255,255,.085);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1200px;height:630px;overflow:hidden}
+body{-webkit-font-smoothing:antialiased}
+
+.card{position:relative;width:1200px;height:630px;background:var(--bg);color:var(--ink);font-family:var(--sans);
+  padding:56px var(--pad) 0;display:grid;grid-template-rows:auto 1fr auto}
+
+/* the site's vertical grid: four 1px rules on the content edges and thirds */
+.grid{position:absolute;inset:0 var(--pad);display:flex;justify-content:space-between;pointer-events:none}
+.grid i{width:1px;height:100%;background:var(--grid)}
+
+.top,.title,.spec{position:relative;z-index:1}
+.top{display:flex;justify-content:space-between;align-items:center;
+  font-family:var(--mono);font-size:17px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink)}
+.top .fe{color:var(--accent)}
+.top .status{display:inline-flex;align-items:center;gap:10px;color:var(--muted);font-size:15px;letter-spacing:.1em;
+  border:1px solid var(--line);padding:8px 14px}
+.top .dot{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+
+.title{align-self:center;font-family:var(--serif);font-weight:400;letter-spacing:-.012em;line-height:1.02}
+.title .l1{display:block;font-size:var(--title,104px)}
+.title em{display:block;font-size:var(--title,104px);font-style:italic;color:var(--accent)}
+
+/* spec strip: three cells snapped to the grid thirds */
+.spec{display:grid;grid-template-columns:repeat(3,1fr);margin:0 calc(var(--pad) * -1);padding:0 var(--pad);
+  border-top:1px solid var(--line)}
+.spec div{padding:22px 28px 34px;border-left:1px solid transparent}
+.spec div:first-child{padding-left:0}
+.spec b{display:block;font-family:var(--mono);font-weight:400;font-size:14px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);margin-bottom:8px}
+.spec span{font-family:var(--serif);font-size:32px;line-height:1.1}
