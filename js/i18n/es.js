@@ -55,9 +55,7 @@ export const es = {
   'home.work_lead': 'Cada uno resolvía algo diferente. Lo que comparten: los tres están terminados, y en cada uno tomé decisiones que puedo defender.',
 
   'home.pandora_status':   'Open source · 2025',
-  'home.pandora_alt':      'Consola de Pandora: administración de API keys, cuotas, microservicios y permisos',
-  'home.pandora_ph_title': 'Captura en camino',
-  'home.pandora_ph_body':  'Mientras tanto, el código completo está abierto en GitHub.',
+  'home.pandora_alt':      'Panel de administración de Pandora: desde el menú lateral se navega entre Dashboard, Servicios, Clientes y Proyectos; cada sección lista sus registros en una tabla filtrable por estado, con acciones para crear, editar y eliminar',
   'home.pandora_oneline':  'Consola para centralizar el gobierno de APIs entre organizaciones.',
   'home.role_k':           'Mi rol',
   'home.pandora_role':     'Contribuidor y líder de frontend.',
@@ -72,7 +70,7 @@ export const es = {
   'home.pandora_link':     'Ver el código en GitHub',
 
   'home.jobs_status':  'Demo en vivo',
-  'home.jobs_alt':     'Listado de vacantes de Job Portal con filtros por modalidad y nivel de experiencia',
+  'home.jobs_alt':     'Portal de empleo Job Portal: se buscan vacantes por rol, empresa o tecnología y se filtran por modalidad y experiencia; cada vacante se muestra como tarjeta con nivel, ubicación y salario, y desde el menú se consultan las postulaciones propias',
   'home.jobs_oneline': 'Portal de empleo construido de punta a punta: base de datos, API e interfaz.',
   'home.jobs_role':    'Desarrollador full stack.',
   'home.jobs_f1_k':    'Por qué lo hice completo',

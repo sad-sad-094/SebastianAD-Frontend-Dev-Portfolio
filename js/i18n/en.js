@@ -55,9 +55,7 @@ export const en = {
   'home.work_lead': 'Each one solved something different. What they share: all three are finished, and in each one I made decisions I can defend.',
 
   'home.pandora_status':   'Open source · 2025',
-  'home.pandora_alt':      'Pandora console: management of API keys, quotas, microservices and permissions',
-  'home.pandora_ph_title': 'Screenshot on its way',
-  'home.pandora_ph_body':  'In the meantime, the full code is open on GitHub.',
+  'home.pandora_alt':      'Pandora admin panel: a sidebar moves between Dashboard, Services, Clients and Projects; each section lists its records in a table filterable by status, with actions to create, edit and delete',
   'home.pandora_oneline':  'A console to centralize API governance across organizations.',
   'home.role_k':           'My role',
   'home.pandora_role':     'Frontend contributor and frontend lead.',
@@ -72,7 +70,7 @@ export const en = {
   'home.pandora_link':     'View the code on GitHub',
 
   'home.jobs_status':  'Live demo',
-  'home.jobs_alt':     'Job Portal listing of openings with filters by work mode and experience level',
+  'home.jobs_alt':     'Job Portal: openings are searched by role, company or technology and filtered by work mode and experience; each one appears as a card with level, location and salary, and the menu leads to the user’s own applications',
   'home.jobs_oneline': 'A job board built end to end: database, API and interface.',
   'home.jobs_role':    'Full stack developer.',
   'home.jobs_f1_k':    'Why I built all of it',

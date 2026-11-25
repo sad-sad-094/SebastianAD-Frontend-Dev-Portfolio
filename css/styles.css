@@ -249,8 +249,9 @@ h1 .ln:nth-child(4)>span{animation-delay:.27s}
   border:1px dashed var(--line-strong);background:
     repeating-linear-gradient(135deg,transparent 0 11px,color-mix(in srgb,var(--line) 42%,transparent) 11px 12px);
 }
-/* phones: zoom into the readable top-left of a wide dashboard shot instead of shrinking all of it */
-.media--crop img{width:160%;max-width:none}
+/* show the whole shot: no height cap, framed on all four sides */
+.media.media--full{max-height:none;padding-bottom:16px}
+.media--full img{border-bottom:1px solid var(--line)}
 .media.empty .ph b{font-family:var(--mono);font-size:.7rem;letter-spacing:.13em;text-transform:uppercase;color:var(--accent);font-weight:400}
 .media.empty .ph span{font-family:var(--mono);font-size:var(--fs-label);color:var(--muted);line-height:1.8}
 
@@ -401,7 +402,7 @@ footer{padding:30px 0 calc(30px + var(--safe-area-bottom));border-top:1px solid 
   .snote{text-align:right;padding-right:14px}
 
   .media{padding:30px 30px 0;max-height:390px}
-  .media--crop img{width:100%}
+  .media.media--full{padding-bottom:30px}
   .media.empty .ph{inset:30px 30px 30px}
 
   .field{grid-template-columns:186px 1fr;gap:28px;padding:17px 0}
