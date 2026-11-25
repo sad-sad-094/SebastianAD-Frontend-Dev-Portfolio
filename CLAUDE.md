@@ -35,13 +35,13 @@ npx serve .
 ## Architecture
 
 - `css/styles.css` — the whole design system, shared by both pages: tokens → base → a11y → grid/HUD → nav → section structure → components → services-page components → `sm`/`md`/`lg` layers → reduced motion.
-- `js/main.js` — theme toggle, mobile menu, Pandora screenshot placeholder, nav border on scroll, `.rv` scroll reveal, HUD, footer year, then `initI18n()`. Shared by both pages; every feature no-ops if its elements are absent.
+- `js/main.js` — theme toggle, mobile menu, screenshot-frame placeholder (`.media[data-placeholder]`, currently unused), nav border on scroll, `.rv` scroll reveal, HUD, footer year, then `initI18n()`. Shared by both pages; every feature no-ops if its elements are absent.
 - Each page has a tiny **inline script in `<head>`** that applies the saved theme (`localStorage['sad-theme']`, else `prefers-color-scheme`) before first paint. Keep it there — moving it into `main.js` causes a light flash.
 - `js/i18n/` — vanilla i18n (no library):
   - `i18n.js` — `initI18n()` picks the language (localStorage `portfolio-lang` → browser language → `es`), then swaps `data-i18n` (textContent), `data-i18n-html` (innerHTML), `data-i18n-aria`, `data-i18n-alt`, `data-i18n-content` (meta tags), `data-i18n-href` (CV PDF per language). `[data-lang-toggle]` switches language. Exports `t(key)` and dispatches a `langchange` event (the HUD listens to it).
   - `es.js` / `en.js` — flat dictionaries, **must stay in sync key-for-key**. Keys are prefixed `common.*` (both pages), `home.*` (index), `svc.*` (servicios). New visible or meta copy needs a key in both files.
-- `assets/` — favicon, wordmark logo, CV PDFs (ES / `_en`), `img/jobportal.jpg`.
-- `og/` — social preview card templates (`og-home.html`, `og-servicios.html`, shared `og-card.css`). Run `bash og/render.sh` after editing them to regenerate `assets/og-home.jpg` / `assets/og-servicios.jpg` (1200×630, needs python3 + Pillow + firefox). Both pages reference them via absolute `og:image` / `twitter:image` URLs on the placeholder domain. `img/pandora.jpg` is **pending**: until it exists the frame shows a dashed placeholder (2560px wide, ideally dark mode).
+- `assets/` — favicon, wordmark logo, CV PDFs (ES / `_en`), `img/jobportal.webp`, `img/pandora.webp` (case screenshots).
+- `og/` — social preview card templates (`og-home.html`, `og-servicios.html`, shared `og-card.css`). Run `bash og/render.sh` after editing them to regenerate `assets/og-home.jpg` / `assets/og-servicios.jpg` (1200×630, needs python3 + Pillow + firefox). Both pages reference them via absolute `og:image` / `twitter:image` URLs on the placeholder domain.
 
 ## Design system (see `:root` in styles.css)
 
