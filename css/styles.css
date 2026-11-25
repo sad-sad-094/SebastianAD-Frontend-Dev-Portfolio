@@ -130,7 +130,6 @@ nav.nav.stuck{border-bottom-color:var(--line)}
 .nav-in{display:flex;align-items:center;justify-content:space-between;height:64px;gap:12px}
 /* brand may wrap to two lines on the narrowest phones (320px) so the controls never get pushed off-screen */
 .brand{font-family:var(--mono);font-size:.7rem;letter-spacing:.06em;line-height:1.35;text-transform:uppercase;min-width:0}
-.brand span{display:none;color:var(--accent)}
 .nav-links{display:none;gap:26px;font-family:var(--mono);font-size:.72rem;letter-spacing:.05em;color:var(--muted);text-transform:uppercase}
 .nav-links a{position:relative;white-space:nowrap;transition:color .2s}
 .nav-links a::before{content:attr(data-n);color:var(--faint);margin-right:5px;font-size:var(--fs-label)}
@@ -381,7 +380,6 @@ footer{padding:30px 0 calc(30px + var(--safe-area-bottom));border-top:1px solid 
 @media(min-width:640px){
   .nav-in{gap:24px}
   .brand{font-size:.78rem;white-space:nowrap}
-  .brand span{display:inline}
   .ilinks-contact{display:none}
   .navcta{display:block}
   .back{display:inline}
