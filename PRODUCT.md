@@ -46,7 +46,8 @@ Neither claim alone differentiates from every other portfolio; the combination �
 
 - Name: Sebastian Aguirre Duque. Contact: `sadw621@gmail.com`, WhatsApp `+57 350 648 7868`.
 - GitHub: `github.com/sad-sad-094`. LinkedIn: `linkedin.com/in/sebastian-aguirre-duque-05b9b082`.
-- Accent color `#4D55CC` (indigo), Fraunces (serif/headings) + Inter (sans/body) are existing, established brand choices from the current implementation — carried here as fact, not re-opened as a design decision.
+- Visual identity is the "Ficha técnica" redesign (Nov 2026): accent `#4F46E5` (light) / `#9089FB` (dark), Instrument Serif + Inter + JetBrains Mono, square corners, vertical grid and numbered sections. Source of truth: `GUIA-DESARROLLO_1.md` in the external design folder; summarized in `CLAUDE.md`.
+- Since the redesign, the two audiences are served by **two pages**: `/` (recruiters) and `/servicios` (freelance clients), linked only from the footer. This supersedes Product Principle 2 below.
 
 ## Evidence on Hand
 
