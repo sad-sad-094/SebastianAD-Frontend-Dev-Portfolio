@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title data-i18n="svc.meta_title">Servicios — Sebastian Aguirre Duque</title>
+  <meta name="description" content="Desarrollo frontend por proyecto para negocios que necesitan su sitio bien hecho y para estudios que necesitan manos de frontend." data-i18n-content="svc.meta_description">
+  <meta name="author" content="Sebastian Aguirre Duque">
+  <meta name="robots" content="index, follow">
+  <!-- TODO: update href to your deployed domain -->
+  <link rel="canonical" href="https://sebastianaguirreduque.dev/servicios">
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_CO">
+  <meta property="og:locale:alternate" content="en_US">
+  <meta property="og:title" content="Servicios — Sebastian Aguirre Duque" data-i18n-content="svc.meta_title">
+  <meta property="og:description" content="Desarrollo frontend por proyecto, sin sorpresas: alcance claro por escrito, avance visible y entrega el día acordado." data-i18n-content="svc.og_description">
+  <!-- Social preview card (1200×630), generated from og/og-servicios.html by og/render.sh.
+       Must be an absolute public URL: update the domain together with the other TODOs. -->
+  <meta property="og:image" content="https://sebastianaguirreduque.dev/assets/og-servicios.jpg">
+  <meta property="og:image:type" content="image/jpeg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Servicios de Sebastian Aguirre Duque: desarrollo frontend por proyecto, sin sorpresas.">
+  <!-- TODO: update og:url to your deployed domain. hreflang: see the note in index.html <head> -->
+  <meta property="og:url" content="https://sebastianaguirreduque.dev/servicios">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://sebastianaguirreduque.dev/assets/og-servicios.jpg">
+  <meta name="twitter:title" content="Servicios — Sebastian Aguirre Duque" data-i18n-content="svc.meta_title">
+  <meta name="twitter:description" content="Desarrollo frontend por proyecto, sin sorpresas: alcance claro por escrito, avance visible y entrega el día acordado." data-i18n-content="svc.og_description">
+
+  <link rel="icon" type="image/png" href="assets/sebastian-favicon.png">
+
+  <!-- Before first paint: marks JS as available (.js) and applies the theme (key: sad-theme) -->
+  <script>
+    (function () {
+      var r = document.documentElement, s = null;
+      r.classList.add('js'); /* reveal/HUD/menu only hide things when JS is running */
+      try { s = localStorage.getItem('sad-theme'); } catch (e) {}
+      if (s === 'dark' || s === 'light') r.setAttribute('data-theme', s);
+      else if (matchMedia('(prefers-color-scheme: dark)').matches) r.setAttribute('data-theme', 'dark');
+    })();
+  </script>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link" data-i18n="common.skip">Saltar al contenido</a>
+
+  <div class="rules" aria-hidden="true"><div class="rules-in"><i></i><i></i><i></i><i></i></div></div>
+  <div class="hud" id="hud" aria-hidden="true">SEC <b>00</b> / 05 · SERVICIOS</div>
+
+  <!-- ============================================================
+       NAV — section numbers (data-n / <i>) must match the section heads
+       ============================================================ -->
+  <nav class="nav" id="nav" aria-label="Navegación principal" data-i18n-aria="common.nav_aria">
+    <div class="wrap nav-in">
+      <a href="./" class="brand" aria-label="Volver al portafolio" data-i18n-aria="svc.back_aria">Sebastian Aguirre Duque</a>
+      <div class="nav-links">
+        <a href="#clients" data-n="01" data-i18n="svc.nav_clients">Con quién trabajo</a>
+        <a href="#build" data-n="02" data-i18n="svc.nav_build">Qué construyo</a>
+        <a href="#process" data-n="03" data-i18n="svc.nav_process">Proceso</a>
+        <a href="#limits" data-n="04" data-i18n="svc.nav_limits">Lo que no hago</a>
+      </div>
+      <div class="nav-right">
+        <a class="back" href="./" data-i18n="svc.back">← Portafolio</a>
+        <button type="button" class="ibtn" data-lang-toggle aria-label="Cambiar a inglés">EN</button>
+        <button type="button" class="ibtn" id="theme" aria-label="Cambiar tema" data-i18n-aria="common.theme_aria">◐</button>
+        <a class="navcta" href="#contact" data-i18n="common.cta">Hablemos</a>
+        <button type="button" class="ibtn burger" id="burger" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobnav" data-i18n-aria="common.menu_aria">≡</button>
+      </div>
+    </div>
+    <div class="mobnav" id="mobnav">
+      <div class="wrap">
+        <a href="#clients"><span data-i18n="svc.nav_clients">Con quién trabajo</span><i>01</i></a>
+        <a href="#build"><span data-i18n="svc.nav_build">Qué construyo</span><i>02</i></a>
+        <a href="#process"><span data-i18n="svc.nav_process">Proceso</span><i>03</i></a>
+        <a href="#limits"><span data-i18n="svc.nav_limits">Lo que no hago</span><i>04</i></a>
+        <a href="#contact"><span data-i18n="common.nav_contact">Contacto</span><i>05</i></a>
+        <a href="./"><span data-i18n="svc.back_long">← Volver al portafolio</span><i></i></a>
+      </div>
+    </div>
+  </nav>
+
+  <main id="main-content">
+
+    <!-- ============================================================
+         HERO
+         ============================================================ -->
+    <header class="hero" id="top" data-hud-key="svc.hud_top">
+      <div class="wrap hero-grid">
+        <div class="status"><span class="dot" aria-hidden="true"></span> <span data-i18n="svc.status">Agenda abierta para nuevos proyectos</span></div>
+        <h1>
+          <span class="ln"><span data-i18n-html="svc.h1_l1">Desarrollo frontend</span></span>
+          <span class="ln"><span data-i18n-html="svc.h1_l2">por proyecto, <em>sin sorpresas.</em></span></span>
+        </h1>
+        <p class="hsub" data-i18n="svc.hsub">Trabajo con negocios que necesitan su sitio bien hecho y con estudios que necesitan manos de frontend en las que confiar. En los dos casos la promesa es la misma: alcance claro por escrito, avance visible y entrega el día que dije.</p>
+        <div class="hcta">
+          <a class="btn btn-p" href="#contact"><span data-i18n="svc.cta_project">Cuéntame tu proyecto</span> <span class="arr" aria-hidden="true">→</span></a>
+          <a class="btn btn-g" href="./" data-i18n="svc.cta_work">Ver mi trabajo</a>
+        </div>
+        <div class="spec">
+          <div class="srow srow--name"><span class="skey" data-i18n="common.spec_name_k">Nombre</span><span class="sval">Sebastian Aguirre Duque</span><span class="snote">Frontend Developer</span></div>
+          <div class="srow"><span class="skey" data-i18n="common.spec_mode_k">Modalidad</span><span class="sval" data-i18n="common.spec_mode_v">Remoto</span><span class="snote">UTC−5 · Colombia</span></div>
+          <div class="srow"><span class="skey" data-i18n="common.spec_lang_k">Idiomas</span><span class="sval">ES · EN</span><span class="snote" data-i18n="common.spec_lang_n">Profesional en ambos</span></div>
+          <div class="srow"><span class="skey" data-i18n="svc.spec_reply_k">Respuesta</span><span class="sval" data-i18n="svc.spec_reply_v">Menos de 24 h</span><span class="snote" data-i18n="svc.spec_reply_n">Incluso si la respuesta es no</span></div>
+          <div class="srow"><span class="skey" data-i18n="svc.spec_budget_k">Presupuesto</span><span class="sval" data-i18n="svc.spec_budget_v">Por proyecto</span><span class="snote" data-i18n="svc.spec_budget_n">Cerrado antes de empezar</span></div>
+        </div>
+      </div>
+    </header>
+
+    <!-- ============================================================
+         01 · WHO I WORK WITH
+         ============================================================ -->
+    <section id="clients">
+      <div class="wrap">
+        <span class="plus tl" aria-hidden="true">+</span><span class="plus tr" aria-hidden="true">+</span>
+        <div class="sechead rv">
+          <div class="sechead-row"><span class="secnum">01</span><span class="secname" data-i18n="svc.nav_clients">Con quién trabajo</span></div>
+          <div class="secrule"></div>
+        </div>
+        <div class="sec-intro rv">
+          <h2 data-i18n-html="svc.clients_h2">Dos formas de entrar,<br><em>una sola de entregar.</em></h2>
+          <p class="lead" data-i18n="svc.clients_lead">Los dos tipos de cliente que atiendo necesitan cosas distintas. Prefiero decirlo de frente antes de que leas una página escrita para el promedio de los dos.</p>
+        </div>
+        <div class="tracks rv">
+          <div class="track">
+            <span class="tk" data-i18n="svc.trackA_k">Modo A</span>
+            <h3 data-i18n="svc.trackA_t">Directo con tu negocio</h3>
+            <p data-i18n="svc.trackA_p">Tienes un negocio y necesitas que exista en internet — o que lo que ya tienes deje de dar problemas. No necesitas entender de frameworks: esa parte es mía. Lo que sí vas a notar es que el sitio abre rápido en el celular de tus clientes, que se ve bien en cualquier pantalla, que Google puede leerlo, y que cuando pidas un cambio te responde alguien.</p>
+            <div class="who"><b data-i18n="svc.track_who">Suele ser</b><span data-i18n="svc.trackA_who">Comercios, consultorios, restaurantes, servicios profesionales y catálogos de producto.</span></div>
+          </div>
+          <div class="track">
+            <span class="tk" data-i18n="svc.trackB_k">Modo B</span>
+            <h3 data-i18n="svc.trackB_t">Como extensión de tu equipo</h3>
+            <p data-i18n="svc.trackB_p">Eres un estudio o una agencia, tienes el diseño listo o el cliente conseguido, y te faltan manos de frontend. Entro en tu proceso, no al revés: tu stack, tu repositorio, tus convenciones. Entrego componentes que tu equipo pueda leer y mantener cuando yo ya no esté — que es la única definición de trabajo bien entregado que me parece honesta.</p>
+            <div class="who"><b data-i18n="svc.track_who">Suele ser</b><span data-i18n="svc.trackB_who">Agencias de diseño, estudios, equipos de producto y desarrolladores que necesitan apoyo en frontend.</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         02 · WHAT I BUILD
+         ============================================================ -->
+    <section id="build">
+      <div class="wrap">
+        <span class="plus tl" aria-hidden="true">+</span><span class="plus tr" aria-hidden="true">+</span>
+        <div class="sechead rv">
+          <div class="sechead-row"><span class="secnum">02</span><span class="secname" data-i18n="svc.nav_build">Qué construyo</span></div>
+          <div class="secrule"></div>
+        </div>
+        <div class="sec-intro rv">
+          <h2 data-i18n-html="svc.build_h2">Tres tipos de encargo,<br>explicados <em>en los dos idiomas.</em></h2>
+          <p class="lead" data-i18n="svc.build_lead">Cada uno va en simple y en técnico. Lee el que te sirva — y si quieres ver el otro, también dice algo sobre cómo trabajo.</p>
+        </div>
+
+        <article class="svc-item rv">
+          <div class="casebar"><span class="id" data-i18n="svc.s1_id">Servicio 01</span><span data-i18n="svc.s1_for">Para negocios</span></div>
+          <div class="svc-body">
+            <h3 data-i18n="svc.s1_t">Sitio web</h3>
+            <div class="fields">
+              <div class="field"><span class="fk" data-i18n="svc.simple">En simple</span><span class="fv" data-i18n="svc.s1_simple">El lugar donde tus clientes te encuentran y entienden en treinta segundos qué vendes. Que cargue rápido aunque la conexión esté mala, que se vea bien en el celular —donde va a entrar la mayoría— y que Google pueda leerlo para que aparezcas cuando te busquen.</span></div>
+              <div class="field"><span class="fk" data-i18n="svc.technical">En técnico</span><span class="fv" data-i18n="svc.s1_tech">Marcado semántico y accesible, sistema de diseño responsivo con tokens reutilizables, Core Web Vitals optimizados (LCP, CLS, INP) y SEO técnico de base. Interfaz de producción, no una demo que se ve bien en una captura.</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="svc-item rv">
+          <div class="casebar"><span class="id" data-i18n="svc.s2_id">Servicio 02</span><span data-i18n="svc.s2_for">Para negocios y equipos</span></div>
+          <div class="svc-body">
+            <h3 data-i18n="svc.s2_t">Aplicación web</h3>
+            <div class="fields">
+              <div class="field"><span class="fk" data-i18n="svc.simple">En simple</span><span class="fv" data-i18n="svc.s2_simple">Una herramienta hecha a tu medida: un panel para administrar tu operación, un portal para que tus clientes consulten lo suyo, o eso que hoy resuelves en hojas de cálculo compartidas y ya se te salió de las manos.</span></div>
+              <div class="field"><span class="fk" data-i18n="svc.technical">En técnico</span><span class="fv" data-i18n="svc.s2_tech">SPA en React o Vue con arquitectura limpia y estado predecible, integración con APIs y servicios externos, y cobertura de pruebas donde el costo de fallar es alto. Pensada para crecer sin reescribirse.</span></div>
+            </div>
+          </div>
+        </article>
+
+        <article class="svc-item rv">
+          <div class="casebar"><span class="id" data-i18n="svc.s3_id">Servicio 03</span><span data-i18n="svc.s3_for">Para proyectos existentes</span></div>
+          <div class="svc-body">
+            <h3 data-i18n="svc.s3_t">Migración y rediseño</h3>
+            <div class="fields">
+              <div class="field"><span class="fk" data-i18n="svc.simple">En simple</span><span class="fv" data-i18n="svc.s3_simple">Ya tienes un sitio o una aplicación, pero va lento, se ve de hace diez años o cada cambio cuesta más que el anterior. Se arregla por partes, sin apagar lo que hoy te está funcionando.</span></div>
+              <div class="field"><span class="fk" data-i18n="svc.technical">En técnico</span><span class="fv" data-i18n="svc.s3_tech">Auditoría de arquitectura y de experiencia, modernización incremental del stack y mejora medible de performance. Sin reescribir todo de cero ni frenar el roadmap del equipo — que es la razón por la que la mayoría de estas migraciones se quedan a medias.</span></div>
+              <div class="field"><span class="fk" data-i18n="svc.s3_most_k">Es lo que más hago</span><span class="fv" data-i18n="svc.s3_most_v">Dos años y medio de mi experiencia fueron exactamente esto: entrar a proyectos que ya existían y dejarlos más rápidos, más accesibles y más fáciles de mantener.</span></div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         03 · PROCESS — mirrored in the FAQPage JSON-LD below
+         ============================================================ -->
+    <section id="process">
+      <div class="wrap">
+        <span class="plus tl" aria-hidden="true">+</span><span class="plus tr" aria-hidden="true">+</span>
+        <div class="sechead rv">
+          <div class="sechead-row"><span class="secnum">03</span><span class="secname" data-i18n="svc.nav_process">Proceso</span></div>
+          <div class="secrule"></div>
+        </div>
+        <div class="sec-intro rv">
+          <h2 data-i18n-html="svc.process_h2">Sin sorpresas.<br><em>Así trabajo contigo.</em></h2>
+          <p class="lead" data-i18n="svc.process_lead">Cinco etapas. Cada una termina en algo que puedes tener en la mano antes de pasar a la siguiente.</p>
+        </div>
+        <ol class="steps rv">
+          <li class="step">
+            <div class="no" aria-hidden="true">1</div>
+            <div><h3 data-i18n="svc.p1_t">Descubrimiento</h3><p data-i18n="svc.p1_p">Una llamada para entender tu negocio, tus objetivos y a quién le habla tu sitio. Sin esto no hay propuesta real, y las propuestas sin contexto no le sirven a nadie.</p></div>
+            <div class="deliver" data-i18n="svc.p1_d">Brief confirmado</div>
+          </li>
+          <li class="step">
+            <div class="no" aria-hidden="true">2</div>
+            <div><h3 data-i18n="svc.p2_t">Propuesta</h3><p data-i18n="svc.p2_p">Alcance, cronograma y presupuesto por escrito. Sabes exactamente qué recibes, cuándo y cuánto cuesta antes de comprometerte con nada.</p></div>
+            <div class="deliver" data-i18n="svc.p2_d">Propuesta firmada</div>
+          </li>
+          <li class="step">
+            <div class="no" aria-hidden="true">3</div>
+            <div><h3 data-i18n="svc.p3_t">Diseño y aprobación</h3><p data-i18n="svc.p3_p">Mockups o wireframes del resultado antes de que exista una sola línea de código. Tu aprobación aquí evita las correcciones caras de después, y nos protege a los dos.</p></div>
+            <div class="deliver" data-i18n="svc.p3_d">Diseño aprobado</div>
+          </li>
+          <li class="step">
+            <div class="no" aria-hidden="true">4</div>
+            <div><h3 data-i18n="svc.p4_t">Desarrollo</h3><p data-i18n="svc.p4_p">Construcción por partes con actualizaciones regulares. Ves el avance sin tener que preguntar: siempre sabes en qué etapa estamos y qué viene después.</p></div>
+            <div class="deliver" data-i18n="svc.p4_d">Builds para revisión</div>
+          </li>
+          <li class="step">
+            <div class="no" aria-hidden="true">5</div>
+            <div><h3 data-i18n="svc.p5_t">Entrega y soporte</h3><p data-i18n="svc.p5_p">Revisión final, ajustes y lanzamiento. Ya en producción, quedo disponible durante un período acordado por escrito — los proyectos no terminan el día que salen en vivo.</p></div>
+            <div class="deliver" data-i18n="svc.p5_d">Proyecto en producción</div>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         04 · WHAT I DON'T DO
+         ============================================================ -->
+    <section id="limits">
+      <div class="wrap">
+        <span class="plus tl" aria-hidden="true">+</span><span class="plus tr" aria-hidden="true">+</span>
+        <div class="sechead rv">
+          <div class="sechead-row"><span class="secnum">04</span><span class="secname" data-i18n="svc.nav_limits">Lo que no hago</span></div>
+          <div class="secrule"></div>
+        </div>
+        <div class="sec-intro rv">
+          <h2 data-i18n-html="svc.limits_h2">Lo que no hago,<br>para <em>no hacerte perder tiempo.</em></h2>
+          <p class="lead" data-i18n="svc.limits_lead">Decir que sí a todo es la forma más rápida de quedarle mal a alguien. Esto es lo que vas a tener que buscar en otra parte.</p>
+        </div>
+        <ul class="nolist rv">
+          <li><span aria-hidden="true">01</span><div data-i18n-html="svc.no1"><strong>No hago diseño gráfico ni identidad de marca.</strong> Construyo interfaces. Si no tienes diseño, trabajo con wireframes sencillos o te recomiendo a alguien que lo haga bien.</div></li>
+          <li><span aria-hidden="true">02</span><div data-i18n-html="svc.no2"><strong>No soy backend.</strong> Hago APIs sencillas en Node cuando el proyecto lo pide, pero si lo tuyo necesita un sistema de datos serio, te lo digo desde la primera llamada y buscamos a quien corresponda.</div></li>
+          <li><span aria-hidden="true">03</span><div data-i18n-html="svc.no3"><strong>No trabajo sin alcance definido.</strong> Nada de horas sueltas contra una lista que crece. Necesito saber a dónde vamos antes de empezar, y tú necesitas saber cuándo termina.</div></li>
+          <li><span aria-hidden="true">04</span><div data-i18n-html="svc.no4"><strong>No entrego código que no pueda explicar.</strong> Si no entiendo por qué algo funciona, no lo pongo en producción con tu nombre encima.</div></li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============================================================
+         05 · CONTACT (dark band)
+         ============================================================ -->
+    <section id="contact" class="band">
+      <div class="bandrules" aria-hidden="true"><div class="rules-in"><i></i><i></i><i></i><i></i></div></div>
+      <div class="wrap">
+        <span class="plus tl" aria-hidden="true">+</span><span class="plus tr" aria-hidden="true">+</span>
+        <div class="sechead rv">
+          <div class="sechead-row"><span class="secnum">05</span><span class="secname" data-i18n="common.nav_contact">Contacto</span></div>
+          <div class="secrule"></div>
+        </div>
+        <div class="contact-body rv">
+          <h2 data-i18n-html="svc.contact_h2">¿Tu proyecto no encaja<br>exactamente <em>aquí?</em></h2>
+          <p class="lead" data-i18n="svc.contact_lead">Cuéntame lo que necesitas. Si puedo ayudarte, te lo digo. Si no, te oriento hacia quien puede. Respondo en menos de 24 horas en cualquiera de los dos casos.</p>
+          <a class="mail" href="https://wa.me/573506487868" target="_blank" rel="noopener">+57 350 648 7868</a>
+          <div class="cbtns">
+            <a class="cbtn solid" href="https://wa.me/573506487868" target="_blank" rel="noopener" data-i18n="svc.contact_wa_btn">Escribir por WhatsApp</a>
+            <a class="cbtn" href="mailto:sadw621@gmail.com" data-i18n="common.send_mail">Enviar correo</a>
+            <a class="cbtn" href="https://www.linkedin.com/in/sebastian-aguirre-duque-05b9b082" target="_blank" rel="noopener">LinkedIn ↗</a>
+          </div>
+          <p class="wa"><span data-i18n="svc.contact_recruiter">¿Eres reclutador y llegaste aquí por error?</span> <a href="./" data-i18n="svc.contact_recruiter_link">Esta es la página que buscas →</a></p>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap foot">
+      <span>© <span data-year>2026</span> Sebastian Aguirre Duque</span>
+      <a class="svc" href="./" data-i18n="svc.back_long">← Volver al portafolio</a>
+    </div>
+  </footer>
+
+  <script type="module" src="js/main.js"></script>
+
+  <!-- Structured data — SEO & AEO. FAQPage mirrors the visible services/process copy: keep in sync -->
+  <!-- TODO: replace all "sebastianaguirreduque.dev" with your deployed domain -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "ProfessionalService",
+        "@id": "https://sebastianaguirreduque.dev/servicios#service",
+        "name": "Desarrollo Frontend — Sebastian Aguirre Duque",
+        "description": "Desarrollo frontend por proyecto: sitios web, aplicaciones web y migración y rediseño. Para negocios directamente o como extensión de estudios y agencias.",
+        "url": "https://sebastianaguirreduque.dev/servicios",
+        "provider": { "@id": "https://sebastianaguirreduque.dev/#person" },
+        "serviceType": [
+          "Website Development",
+          "Web Application Development",
+          "Frontend Migration",
+          "Frontend Redesign"
+        ],
+        "areaServed": "Worldwide",
+        "availableLanguage": ["es", "en"],
+        "telephone": "+573506487868",
+        "email": "sadw621@gmail.com",
+        "availableChannel": {
+          "@type": "ServiceChannel",
+          "serviceUrl": "https://wa.me/573506487868"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "¿Qué servicios de desarrollo web ofrece Sebastian Aguirre Duque?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Tres tipos de encargo: (1) Sitio web — marcado semántico y accesible, diseño responsivo, Core Web Vitals optimizados y SEO técnico de base; (2) Aplicación web — SPA en React o Vue con arquitectura limpia, estado predecible, integración con APIs y pruebas donde el costo de fallar es alto; (3) Migración y rediseño — auditoría, modernización incremental del stack y mejora medible de performance sin reescribir todo de cero."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Con qué tipo de clientes trabaja Sebastian Aguirre Duque?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "De dos formas: directo con negocios (comercios, consultorios, restaurantes, servicios profesionales, catálogos de producto) o como extensión del equipo de estudios, agencias y equipos de producto, trabajando dentro de su stack, repositorio y convenciones."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo es el proceso de trabajo de Sebastian Aguirre Duque?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Cinco etapas, cada una con un entregable: (1) Descubrimiento — brief confirmado; (2) Propuesta — alcance, cronograma y presupuesto por escrito; (3) Diseño y aprobación — mockups o wireframes antes de escribir código; (4) Desarrollo — construcción por partes con builds para revisión; (5) Entrega y soporte — lanzamiento y soporte durante un período acordado por escrito."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Qué no hace Sebastian Aguirre Duque?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No hace diseño gráfico ni identidad de marca, no desarrolla sistemas backend complejos (solo APIs sencillas en Node), no trabaja sin alcance definido y no entrega código que no pueda explicar."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿Cómo contratar a Sebastian Aguirre Duque para un proyecto?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Por WhatsApp al +57 350 648 7868, por correo a sadw621@gmail.com o por LinkedIn. Responde en menos de 24 horas, incluso si la respuesta es que no puede ayudar. El presupuesto es por proyecto y se cierra antes de empezar."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "¿En qué idiomas trabaja Sebastian Aguirre Duque?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "En español e inglés, a nivel profesional en ambos. Trabaja en remoto desde Colombia (UTC−5)."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
+</body>
+</html>
